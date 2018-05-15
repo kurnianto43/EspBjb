@@ -16,12 +16,12 @@ class PartController extends Controller
     public function index()
     	{
             $parts = Part::all();
-    		return view('esp.spp.dataSpp', compact('parts'));
+    		return view('esp.spp.instore', compact('parts'));
     	}
 
     public function create()
     	{
-        	return view('esp.spp.inputSpp');
+        	return view('esp.spp.inputData');
     	}
 
     public function store()
@@ -29,11 +29,20 @@ class PartController extends Controller
     	   Part::create([
     		  'no_part'=>request('no_part'),
     		  'nama_part'=>request('nama_part'),
-    		  'jumlah'=>request('jumlah'),
-    		  'stok_min'=>request('stok_min'),
-    		  'catatan'=>request('catatan')
+    		  'qty'=>request('qty'),
+              'tgl_terima'=>request('tgl_terima'),
+              'catatan'=>request('catatan'),
+    		  'foto_spp'=>request('foto_spp'),
+    		  
     	   ]);
 
-            return redirect()->route('spp.index');
+            return redirect()->route('part.instore');
+        }
+
+    public function destroy(Part $part)
+        {
+            $part->delete();
+
+            return redirect()->route('part.instore');
         }
 }

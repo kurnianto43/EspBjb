@@ -7,7 +7,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Gdm <small>Data Instore Gdm</small></h3>
+                <h3>Spare Part <small>Data Instore Spare Part</small></h3>
               </div>
 
               <div class="title_right">
@@ -31,7 +31,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Instore Gdm 6A <small>{{Auth::user()->role->name}}</small></h2>
+                    <h2>Instore Spare Part 6A <small>{{Auth::user()->role->name}}</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -51,16 +51,15 @@
                   </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      Data instore gdm 6A. <br> Masukan data sesuai dengan yang ada di sistem coca-cola.
+                      Data instore spare part 6A. <br> Masukan data sesuai dengan yang ada di sistem coca-cola.
                     </p>
                     <table id="datatable-buttons" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-					        <th>Nomor Asset</th>
-                  <th style="width: 250px">Nomor Id</th>
-					        <th>Tipe</th>
-					        <th>Kondisi</th>
-					        <th>Tanggal Masuk</th>
+					        <th>Nomor Part</th>
+                  <th style="width: 250px">Nama Part</th>
+					        <th>Qty</th>
+					        <th>Tanggal Terima</th>
                   <th style="width: 200px;">Action</th>
 					        <!-- <th>Action</th> -->
 					    </tr>
@@ -68,25 +67,23 @@
 
 
                       <tbody>
-                        @foreach( $gdms as $gdm )
-			      <tr>
-			        <td>{{ $gdm->no_asset }}</a></td>
-              <td>{{ $gdm->no_id }}</td>
-			        <td>{{ $gdm->tipe->tipe }}</td>
-			        <td>{{ $gdm->kondisi->name }}</td>
-			        <td>{{ $gdm->tgl_masuk_wh }}</td>
-			        <td>
-			        	<form action="{{ route('gdm.destroy', $gdm) }}" method="post">
-			        		{{ csrf_field() }}
-			        		{{ method_field('DELETE') }}
+            @foreach( $parts as $part )
+            <tr>
+              <td>{{ $part->no_part }}</a></td>
+              <td>{{ $part->nama_part }}</td>
+              <td>{{ $part->qty }}</td>
+              <td>{{ $part->tgl_terima }}</td>
+              <td>
+                <form action="{{ route('part.destroy', $part) }}" method="post">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
                 <a href="#" data-toggle="modal" data-target=".bs-example-modal-sm" class="btn btn-default btn-xs"><i class="fa fa-info"></i> Detail</a>
-			        	<a id="edit" href="{{ route('gdm.edit', $gdm) }}" class="btn btn-dark btn-xs"><i class="fa fa-pencil-square-o"></i> Edit</a>
-			        		<button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</button>
-			        	</form>
-			        	
-			        </td>
-			      </tr>
-			      @endforeach
+                  <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o" aria-hidden="true"></i> Hapus</button>
+                </form>
+                
+              </td>
+            </tr>
+            @endforeach
                       </tbody>
                     </table>
                                       <!-- Small modal -->
@@ -102,7 +99,7 @@
                           <h4 class="modal-title" id="myModalLabel2">Detail Gdm</h4>
                         </div>
                         <div class="modal-body">
-                          <img src="/images/uploads/gdm/{{ $gdm->foto_gdm }}" style="height: 200px; width: 200px; margin-top: 10px; margin-bottom: 10px;" alt="..." class="">
+                          <h4></h4>
                           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
                           <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
                         </div>

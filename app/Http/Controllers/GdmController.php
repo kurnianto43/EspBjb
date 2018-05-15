@@ -25,6 +25,7 @@ class GdmController extends Controller
             return view('esp.gdm.instore', compact('kondisis', 'tipes', 'gdms', 'gdm'));
     	}
 
+    // untuk menampilkan form input
     public function create()
         {
             $kondisis = Kondisi::all();
@@ -33,7 +34,7 @@ class GdmController extends Controller
             return view('esp.gdm.inputdata', compact('kondisis', 'tipes'));
         }
 
-
+    // untuk menyimpan data
     public function store()
     	{
             Gdm::create([
@@ -47,6 +48,7 @@ class GdmController extends Controller
 
             return redirect()->route('gdm.instore');
     	}
+
 
     public function edit(Gdm $gdm)
         {

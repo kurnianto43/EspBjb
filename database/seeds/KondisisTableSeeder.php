@@ -12,7 +12,7 @@ class KondisisTableSeeder extends Seeder
     public function run()
     {
         DB::table('kondisis')->insert([
-        	'kondisi' => 'Good',
+        	'name' => 'Good',
         ]);
     }
 }

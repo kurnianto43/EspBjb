@@ -10,6 +10,6 @@ class Tipe extends Model
 
     public function gdm()
     {
-    	return $this->hasOne('App\Gdm');
+    	return $this->hasMany('App\Gdm');
     }
 }

@@ -12,7 +12,7 @@ class TipesTableSeeder extends Seeder
     public function run()
     {
         Tipe::insert([
-        	['tipe'=>'M080'],
+        	['name'=>'M080'],
         ]);
     }
 }

@@ -20,8 +20,11 @@ class CreateGdmsTable extends Migration
             $table->integer('tipe_id')->unsigned();
             $table->integer('kondisi_id')->unsigned();
             $table->date('tgl_masuk_wh');
-            $table->string('catatan', 50);
+            $table->string('catatan', 50)->nullable();
+            $table->string('foto_gdm')->default('gdm.png')->nullable();
             $table->timestamps();
+            $table->foreign('tipe_id')->references('id')->on('tipes');
+            $table->foreign('kondisi_id')->references('id')->on('kondisis');
         });
     }
 

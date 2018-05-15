@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKondisisTable extends Migration
+class CreatePartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateKondisisTable extends Migration
      */
     public function up()
     {
-        Schema::create('kondisis', function (Blueprint $table) {
+        Schema::create('parts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 25);
+            $table->string('no_part', 5)->unique();
+            $table->string('nama_part', 30);
+            $table->integer('qty');
+            $table->date('tgl_terima');
+            $table->string('catatan', 50)->nullable();
+            $table->string('foto_spp')->default('spp.png')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreateKondisisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kondisis');
+        Schema::dropIfExists('parts');
     }
 }

@@ -45,66 +45,52 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{ route('gdm.store') }}" method="POST">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="{{ route('part.store') }}" method="POST">
                     	{{csrf_field()}}
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_asset">Nomor Asset <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_part">Nomor Part <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="no_asset" name="no_asset" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="no_part" name="no_part" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="no_id">Id Asset <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nama_part">Nama Part <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="no_id" name="no_id" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="nama_part" name="nama_part" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipe Gdm <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="qty">Qty <span class="required">*</span>
+                        </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="select2_single form-control" required="required" name="tipe_id" id="tipe_id" tabindex="-1">
-                            <option></option>
-                            @foreach($tipes as $tipe)
-												    	<option value="{{ $tipe -> id }}">{{ $tipe -> name }}</option>
-												    @endforeach
-                          </select>
-                        </div>
-                      </div>
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Kondisi <span class="required">*</span></label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="select2_single form-control" required="required" name="kondisi_id" id="kondisi_id" tabindex="-1">
-                            <option></option>
-                            @foreach($kondisis as $kondisi)
-												    	<option value="{{ $kondisi -> id }}">{{ $kondisi -> name }}</option>
-												    @endforeach
-                          </select>
+                          <input type="text" id="qty" name="qty" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tgl_masuk_wh">Tanggal Masuk Warehouse <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="tgl_terima">Tanggal Terima <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input name="tgl_masuk_wh" id="tgl_masuk_wh" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
-                        </div>
-                      </div>
-                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Catatan
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="catatan" name="catatan" class="date-picker form-control col-md-7 col-xs-12" type="text">
+                          <input name="tgl_terima" id="tgl_terima" class="date-picker form-control col-md-7 col-xs-12" required="required" type="date">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Foto Gdm
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="catatan">Catatan 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="foto_gdm" name="foto_gdm" class="date-picker form-control col-md-7 col-xs-12" required="required" type="file">
+                          <input type="text" id="catatan" name="catatan"  class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="foto_part">Foto Part 
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="file" id="foto_part" name="foto_part" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                    
 
                       <div class="ln_solid"></div>
                       <div class="form-group">
